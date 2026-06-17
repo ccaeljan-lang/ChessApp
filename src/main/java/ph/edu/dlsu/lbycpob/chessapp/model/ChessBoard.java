@@ -83,45 +83,45 @@ public class ChessBoard implements ChessBoardInterface {
      * - White pieces: pawns on row 6, back rank (row 7) with major pieces
      */
     public void initializeBoard() {
-        // PLAYER 1 (BLACK)
+        // PLAYER 1 (WHITE)
         // Back row pieces.
-        addPiece(new Rook(7, 0, 0));
-        addPiece(new Knight(7, 1, 0));
-        addPiece(new Bishop(7, 2, 0));
-        addPiece(new Queen(7, 3, 0));
-        addPiece(new King(7, 4, 0));
-        addPiece(new Bishop(7, 5, 0));
-        addPiece(new Knight(7, 6, 0));
-        addPiece(new Rook(7, 7, 0));
+        addPiece(new Rook(7, 0, ChessPiece.WHITE));
+        addPiece(new Knight(7, 1, ChessPiece.WHITE));
+        addPiece(new Bishop(7, 2, ChessPiece.WHITE));
+        addPiece(new Queen(7, 3, ChessPiece.WHITE));
+        addPiece(new King(7, 4, ChessPiece.WHITE));
+        addPiece(new Bishop(7, 5, ChessPiece.WHITE));
+        addPiece(new Knight(7, 6, ChessPiece.WHITE));
+        addPiece(new Rook(7, 7, ChessPiece.WHITE));
         // Pawn Pieces
-        addPiece(new Pawn(6, 0, 0));
-        addPiece(new Pawn(6, 1, 0));
-        addPiece(new Pawn(6, 2, 0));
-        addPiece(new Pawn(6, 3, 0));
-        addPiece(new Pawn(6, 4, 0));
-        addPiece(new Pawn(6, 5, 0));
-        addPiece(new Pawn(6, 6, 0));
-        addPiece(new Pawn(6, 7, 0));
+        addPiece(new Pawn(6, 0, ChessPiece.WHITE));
+        addPiece(new Pawn(6, 1, ChessPiece.WHITE));
+        addPiece(new Pawn(6, 2, ChessPiece.WHITE));
+        addPiece(new Pawn(6, 3, ChessPiece.WHITE));
+        addPiece(new Pawn(6, 4, ChessPiece.WHITE));
+        addPiece(new Pawn(6, 5, ChessPiece.WHITE));
+        addPiece(new Pawn(6, 6, ChessPiece.WHITE));
+        addPiece(new Pawn(6, 7, ChessPiece.WHITE));
 
-        // PLAYER 2 (WHITE)
+        // PLAYER 2 (BLACK)
         // Back row pieces.
-        addPiece(new Rook(0, 0, 1));
-        addPiece(new Knight(0, 1, 1));
-        addPiece(new Bishop(0, 2, 1));
-        addPiece(new Queen(0, 3, 1));
-        addPiece(new King(0, 4, 1));
-        addPiece(new Bishop(0, 5, 1));
-        addPiece(new Knight(0, 6, 1));
-        addPiece(new Rook(0, 7, 1));
+        addPiece(new Rook(0, 0, ChessPiece.BLACK));
+        addPiece(new Knight(0, 1, ChessPiece.BLACK));
+        addPiece(new Bishop(0, 2, ChessPiece.BLACK));
+        addPiece(new Queen(0, 3, ChessPiece.BLACK));
+        addPiece(new King(0, 4, ChessPiece.BLACK));
+        addPiece(new Bishop(0, 5, ChessPiece.BLACK));
+        addPiece(new Knight(0, 6, ChessPiece.BLACK));
+        addPiece(new Rook(0, 7, ChessPiece.BLACK));
         // Pawn Pieces
-        addPiece(new Pawn(1, 0, 1));
-        addPiece(new Pawn(1, 1, 1));
-        addPiece(new Pawn(1, 2, 1));
-        addPiece(new Pawn(1, 3, 1));
-        addPiece(new Pawn(1, 4, 1));
-        addPiece(new Pawn(1, 5, 1));
-        addPiece(new Pawn(1, 6, 1));
-        addPiece(new Pawn(1, 7, 1));
+        addPiece(new Pawn(1, 0, ChessPiece.BLACK));
+        addPiece(new Pawn(1, 1, ChessPiece.BLACK));
+        addPiece(new Pawn(1, 2, ChessPiece.BLACK));
+        addPiece(new Pawn(1, 3, ChessPiece.BLACK));
+        addPiece(new Pawn(1, 4, ChessPiece.BLACK));
+        addPiece(new Pawn(1, 5, ChessPiece.BLACK));
+        addPiece(new Pawn(1, 6, ChessPiece.BLACK));
+        addPiece(new Pawn(1, 7, ChessPiece.BLACK));
     }
 
     /**
