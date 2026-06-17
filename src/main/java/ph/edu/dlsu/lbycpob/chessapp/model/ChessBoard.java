@@ -1,9 +1,10 @@
 package ph.edu.dlsu.lbycpob.chessapp.model;
 
 // ChessBoard.java
-import ph.edu.dlsu.lbycpob.chessapp.model.pieces.ChessPiece;
+import ph.edu.dlsu.lbycpob.chessapp.model.pieces.*;
 
 import java.util.Arrays;
+
 
 /**
  * Represents a chess board that manages the placement and retrieval of chess pieces.
@@ -82,7 +83,45 @@ public class ChessBoard implements ChessBoardInterface {
      * - White pieces: pawns on row 6, back rank (row 7) with major pieces
      */
     public void initializeBoard() {
-        // TODO:  Call addPiece() here to add the Chessboard pieces
+        // PLAYER 1 (BLACK)
+        // Back row pieces.
+        addPiece(new Rook(7, 0, 0));
+        addPiece(new Knight(7, 1, 0));
+        addPiece(new Bishop(7, 2, 0));
+        addPiece(new Queen(7, 3, 0));
+        addPiece(new King(7, 4, 0));
+        addPiece(new Bishop(7, 5, 0));
+        addPiece(new Knight(7, 6, 0));
+        addPiece(new Rook(7, 7, 0));
+        // Pawn Pieces
+        addPiece(new Pawn(6, 0, 0));
+        addPiece(new Pawn(6, 1, 0));
+        addPiece(new Pawn(6, 2, 0));
+        addPiece(new Pawn(6, 3, 0));
+        addPiece(new Pawn(6, 4, 0));
+        addPiece(new Pawn(6, 5, 0));
+        addPiece(new Pawn(6, 6, 0));
+        addPiece(new Pawn(6, 7, 0));
+
+        // PLAYER 2 (WHITE)
+        // Back row pieces.
+        addPiece(new Rook(0, 0, 1));
+        addPiece(new Knight(0, 1, 1));
+        addPiece(new Bishop(0, 2, 1));
+        addPiece(new Queen(0, 3, 1));
+        addPiece(new King(0, 4, 1));
+        addPiece(new Bishop(0, 5, 1));
+        addPiece(new Knight(0, 6, 1));
+        addPiece(new Rook(0, 7, 1));
+        // Pawn Pieces
+        addPiece(new Pawn(1, 0, 1));
+        addPiece(new Pawn(1, 1, 1));
+        addPiece(new Pawn(1, 2, 1));
+        addPiece(new Pawn(1, 3, 1));
+        addPiece(new Pawn(1, 4, 1));
+        addPiece(new Pawn(1, 5, 1));
+        addPiece(new Pawn(1, 6, 1));
+        addPiece(new Pawn(1, 7, 1));
     }
 
     /**
