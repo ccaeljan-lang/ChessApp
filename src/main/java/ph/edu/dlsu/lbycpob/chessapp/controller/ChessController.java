@@ -567,6 +567,19 @@ public class ChessController {
         return "";
     }
 
+    private void clearHighlights() {
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+
+                if ((row + col) % 2 == 0) {
+                    boardSquares[row][col].setStyle("-fx-fill: beige;");
+                } else {
+                    boardSquares[row][col].setStyle("-fx-fill: brown;");
+                }
+            }
+        }
+    }
+
     public BorderPane getView() {
         return view.getRoot();
     }
