@@ -50,6 +50,11 @@ public class Rook extends ChessPiece {
      */
     @Override
     public boolean canMoveTo(int row, int col, ChessBoard board) {
+        // [UNDERSTAND] A rook must actually move.
+        if (row == this.row && col == this.col) {
+            return false;
+        }
+
         if (row != this.row && col != this.col) {
             return false; // Must move horizontally or vertically
         }

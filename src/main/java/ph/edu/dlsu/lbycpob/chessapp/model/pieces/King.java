@@ -48,6 +48,11 @@ public class King extends ChessPiece {
         int rowDiff = Math.abs(row - this.row);
         int colDiff = Math.abs(col - this.col);
 
+        // [UNDERSTAND] A king must actually move.
+        if (row == this.row && col == this.col) {
+            return false;
+        }
+
         // [UNDERSTAND] A king can only move one square
         // in any direction.
         if (rowDiff > 1 || colDiff > 1) {

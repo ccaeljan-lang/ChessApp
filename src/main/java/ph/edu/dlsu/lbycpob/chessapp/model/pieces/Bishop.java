@@ -44,7 +44,7 @@ public class Bishop extends ChessPiece {
 
         // [UNDERSTAND] A bishop must move diagonally,
         // meaning the row and column changes must be equal.
-        if (rowDiff != colDiff) {
+        if (rowDiff == 0 || rowDiff != colDiff) {
             return false;
         }
 
