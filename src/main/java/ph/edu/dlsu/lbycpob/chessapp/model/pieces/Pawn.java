@@ -11,7 +11,6 @@ import ph.edu.dlsu.lbycpob.chessapp.model.ChessBoard;
  * <li>Capture diagonally forward one square if an opponent's piece is present</li>
  * <li>Cannot move backward</li>
  * </ul>
- *
  * White pawns move "up" the board (decreasing row numbers) while black pawns
  * move "down" the board (increasing row numbers). Pawns are the only pieces
  * that move and capture differently.
