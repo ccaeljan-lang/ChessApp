@@ -67,27 +67,42 @@ public class Pawn extends ChessPiece {
         int rowDiff = row - this.row;
         int colDiff = col - this.col;
 
-        // Direction depends on color
+        // [UNDERSTAND] Direction depends on pawn color.
         int direction = (color == WHITE) ? -1 : 1;
 
-        // Forward move
+        // [UNDERSTAND] Forward move (no capture).
         if (colDiff == 0) {
+
+            // [UNDERSTAND] One-square forward move.
             if (rowDiff == direction && board.pieceAt(row, col) == null) {
                 return !moveWouldCauseCheck(row, col, board);
             }
-            // Initial two-square move
-            if (!hasMoved && rowDiff == 2 * direction && board.pieceAt(row, col) == null) {
-                return !moveWouldCauseCheck(row, col, board);
+
+            // [UNDERSTAND] Two-square move ONLY from starting position.
+            boolean atStartRow = (color == WHITE && this.row == 6)
+                    || (color == BLACK && this.row == 1);
+
+            if (atStartRow && rowDiff == 2 * direction) {
+
+                int oneStepRow = this.row + direction;
+
+                // [UNDERSTAND] Both squares must be empty.
+                if (board.pieceAt(oneStepRow, col) == null
+                        && board.pieceAt(row, col) == null) {
+                    return !moveWouldCauseCheck(row, col, board);
+                }
             }
         }
 
-        // Diagonal capture
+        // [UNDERSTAND] Diagonal capture.
         if (Math.abs(colDiff) == 1 && rowDiff == direction) {
             ChessPiece target = board.pieceAt(row, col);
+
             if (target != null && target.getColor() != this.color) {
                 return !moveWouldCauseCheck(row, col, board);
             }
         }
+
         return false;
     }
 
