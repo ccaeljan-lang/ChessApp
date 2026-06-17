@@ -54,12 +54,35 @@ public class Rook extends ChessPiece {
             return false; // Must move horizontally or vertically
         }
 
-        // Check path is clear
-        // TODO: Complete the polymorphic method canMoveTo()
+        // [UNDERSTAND] Check path is clear:
+        // for horizontal move,
+        if (row == this.row) {
+            int step = (col > this.col) ? 1 : -1;
 
-        // Check destination
-        // TODO: Complete the polymorphic method canMoveTo()
+            for (int c = this.col + step; c != col; c += step) {
+                if (board.pieceAt(row, c) != null) {
+                    return false;
+                }
+            }
+        } else { // for vertical move.
+            int step = (row > this.row) ? 1 : -1;
 
+            for (int r = this.row + step; r != row; r += step) {
+                if (board.pieceAt(r, col) != null) {
+                    return false;
+                }
+            }
+        }
+
+        // [UNDERSTAND] Check destination.
+        ChessPiece targetPiece = board.pieceAt(row, col);
+
+        // [UNDERSTAND] Cannot capture your own piece.
+        if (targetPiece != null && targetPiece.getColor() == this.color) {
+            return false;
+        }
+
+        // [UNDERSTAND] To know if a move is a check or not.
         return !moveWouldCauseCheck(row, col, board);
     }
 
