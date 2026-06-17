@@ -54,6 +54,7 @@ public class ChessController {
 
         view.getMoveHistory().clear();
         view.getBoard().clearSelection();
+        view.getBoard().clearHighlights();
         view.updateBoard(board);
         updateStatus();
     }
@@ -77,12 +78,21 @@ public class ChessController {
                     if (pieceCanHelpInCheck(piece)) {
                         selectedPiece = piece;
                         view.getBoard().selectSquare(row, col);
+
+                        // Highlight legal moves
+                        for (int[] move : getValidMoves(piece)) {
+                            view.getBoard().highlightSquare(move[0], move[1]);
+                        }
                     }
                     // If in check and the piece can't help, don't select it
                 } else {
                     // Not in check - allow normal selection
                     selectedPiece = piece;
                     view.getBoard().selectSquare(row, col);
+
+                    for (int[] move : getValidMoves(piece)) {
+                        view.getBoard().highlightSquare(move[0], move[1]);
+                    }
                 }
             }
         } else {
@@ -90,6 +100,7 @@ public class ChessController {
             if (row == selectedPiece.getRow() && col == selectedPiece.getCol()) {
                 selectedPiece = null;
                 view.getBoard().clearSelection();
+                view.getBoard().clearHighlights();
             } else if (GameLogic.canMakeMove(board, selectedPiece, row, col)) {
                 // Valid move - but double-check it resolves check if we're in check
                 if (GameLogic.isInCheck(board, currentPlayer)) {
@@ -103,6 +114,7 @@ public class ChessController {
                         // Move doesn't resolve check - deselect
                         selectedPiece = null;
                         view.getBoard().clearSelection();
+                        view.getBoard().clearHighlights();
                     }
                 } else {
                     // Not in check - proceed with move
@@ -119,6 +131,7 @@ public class ChessController {
                 // Invalid move - deselect
                 selectedPiece = null;
                 view.getBoard().clearSelection();
+                view.getBoard().clearHighlights();
             }
         }
     }
@@ -291,6 +304,7 @@ public class ChessController {
 
         selectedPiece = null;
         view.getBoard().clearSelection();
+        view.getBoard().clearHighlights();
 
         currentPlayer = (currentPlayer == ChessPiece.WHITE) ? ChessPiece.BLACK : ChessPiece.WHITE;
 
@@ -343,6 +357,7 @@ public class ChessController {
         // Clear selection
         selectedPiece = null;
         view.getBoard().clearSelection();
+        view.getBoard().clearHighlights();
 
         // Update display
         view.updateBoard(board);
