@@ -56,13 +56,21 @@ public class Knight extends ChessPiece {
         int colDiff = Math.abs(col - this.col);
 
         // L-shape move
+        // [UNDERSTAND] either 2 rows + 1 col OR 1 row + 2 cols.
+        if (!((rowDiff == 2 && colDiff == 1) ||
+                (rowDiff == 1 && colDiff == 2))) {
+            return false;
+        }
 
-        // TODO: Complete the polymorphic method canMoveTo()
+        // [UNDERSTAND] Check destination.
+        ChessPiece targetPiece = board.pieceAt(row, col);
 
-        // Check destination
+        // [UNDERSTAND] Cannot capture your own piece.
+        if (targetPiece != null && targetPiece.getColor() == this.color) {
+            return false;
+        }
 
-        // TODO: Complete the polymorphic method canMoveTo()
-
+        // [UNDERSTAND] To know if a move is a check or not.
         return !moveWouldCauseCheck(row, col, board);
     }
 
