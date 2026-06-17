@@ -22,6 +22,7 @@ public class ChessBoardView extends Canvas {
     private ChessBoard board;
     private int selectedRow = -1;
     private int selectedCol = -1;
+    private boolean[][] highlightedSquares = new boolean[8][8];
 
     // Chess piece images
     private Image[][] pieceImages;
@@ -55,6 +56,16 @@ public class ChessBoardView extends Canvas {
         draw();
     }
 
+    public void highlightSquare(int row, int col) {
+        highlightedSquares[row][col] = true;
+        draw();
+    }
+
+    public void clearHighlights() {
+        highlightedSquares = new boolean[8][8];
+        draw();
+    }
+
     private void draw() {
         gc.clearRect(0, 0, TOTAL_WIDTH, TOTAL_HEIGHT);
 
@@ -66,6 +77,11 @@ public class ChessBoardView extends Canvas {
             for (int col = 0; col < 8; col++) {
                 boolean isLight = (row + col) % 2 == 0;
                 gc.setFill(isLight ? Color.WHEAT : Color.SADDLEBROWN);
+
+                // Highlight legal moves
+                if (highlightedSquares[row][col]) {
+                    gc.setFill(Color.LIGHTGREEN);
+                }
 
                 // Highlight selected square
                 if (row == selectedRow && col == selectedCol) {
