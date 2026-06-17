@@ -1,0 +1,88 @@
+/* brown_chess.css - Styling for Chess application */
+
+.chess-root {
+    -fx-background-color: linear-gradient(to bottom, #f5deb3, #d2b48c); /* wheat to tan */
+    -fx-padding: 20px;
+    -fx-background-radius: 10px;
+}
+
+.status-text {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-fill: #3b2f2f; /* dark brown */
+    -fx-effect: dropshadow(gaussian, #c8b08d, 2, 0, 1, 1);
+}
+
+.move-history {
+    -fx-background-color: #f5f5dc; /* beige */
+    -fx-text-fill: #3e2723; /* dark brown text */
+    -fx-font-family: "Consolas", "Monaco", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-border-color: #c8ad7f;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+}
+
+.move-history .scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.move-history .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.move-history .scroll-pane .content {
+    -fx-background-color: transparent;
+}
+
+.move-history .scroll-bar {
+    -fx-background-color: #e0cda9; /* light brown */
+}
+
+.move-history .scroll-bar .thumb {
+    -fx-background-color: #c8ad7f; /* medium tan */
+    -fx-background-radius: 5px;
+}
+
+.move-history .scroll-bar .thumb:hover {
+    -fx-background-color: #b89b68; /* darker tan on hover */
+}
+
+.move-history .scroll-bar .track {
+    -fx-background-color: #f5f5dc; /* beige background */
+    -fx-background-radius: 5px;
+}
+
+/* Professional text appearance */
+.text {
+    -fx-font-smoothing-type: lcd;
+}
+
+/* Lighter hover effect for buttons */
+.button {
+    -fx-background-color: #e6b877; /* warm amber */
+    -fx-text-fill: #3e2723; /* dark brown text */
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 3, 0, 0, 1);
+}
+
+.button:hover {
+    -fx-background-color: #d99a4e;
+    -fx-cursor: hand;
+}
+
+.button:pressed {
+    -fx-background-color: #c77b2e;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 2, 0, 0, 0);
+}
+
+/* Chess board container with soft shadow */
+.chess-board-container {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 3);
+    -fx-background-radius: 5px;
+}

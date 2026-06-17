@@ -1,0 +1,106 @@
+.chess-root {
+    -fx-background-color: linear-gradient(to bottom, #f5f1e6, #e8dfd1);
+    -fx-padding: 20px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #d4b98c;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+}
+
+.status-text {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-fill: #5d4b36;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 1, 0, 1, 1);
+}
+
+.move-history {
+    -fx-background-color: #f8f4ec;
+    -fx-text-fill: #5d4b36;
+    -fx-font-family: "Consolas", "Monaco", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-border-color: #d4b98c;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(139, 107, 70, 0.1), 3, 0, 0, 1);
+}
+
+.move-history .scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.move-history .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.move-history .scroll-pane .content {
+    -fx-background-color: transparent;
+}
+
+.move-history .scroll-bar {
+    -fx-background-color: #ede6d8;
+}
+
+.move-history .scroll-bar .thumb {
+    -fx-background-color: #c7b299;
+    -fx-background-radius: 5px;
+}
+
+.move-history .scroll-bar .thumb:hover {
+    -fx-background-color: #b8a38a;
+}
+
+.move-history .scroll-bar .track {
+    -fx-background-color: #f1eade;
+    -fx-background-radius: 5px;
+}
+
+/* Text styling */
+.text {
+    -fx-font-smoothing-type: lcd;
+    -fx-fill: #5d4b36;
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: #bfa38a; /* lighter warm brown */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);
+    -fx-border-color: #7a5639; /* richer contrast */
+    -fx-border-width: 1.5px;
+}
+
+.button:hover {
+    -fx-background-color: #7a5639; /* deeper brown on hover */
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 4, 0, 0, 1);
+}
+
+.button:pressed {
+    -fx-background-color: #5c3e28;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 2, 0, 0, 0);
+}
+
+/* Chess board container */
+.chess-board-container {
+    -fx-effect: dropshadow(gaussian, rgba(139, 107, 70, 0.2), 8, 0, 0, 2);
+    -fx-background-radius: 5px;
+    -fx-border-color: #d4b98c;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-color: #f1eade;
+}
+
+/* Additional elements for chess squares (example) */
+.light-square {
+    -fx-fill: #f0d9b5;
+}
+
+.dark-square {
+    -fx-fill: #b58863;
+}
