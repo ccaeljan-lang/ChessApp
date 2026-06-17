@@ -3,7 +3,9 @@ package ph.edu.dlsu.lbycpob.chessapp.model;
 // ChessBoard.java
 import ph.edu.dlsu.lbycpob.chessapp.model.pieces.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -132,6 +134,20 @@ public class ChessBoard implements ChessBoardInterface {
         for (ChessPiece[] row : board) {
             Arrays.fill(row, null);
         }
+    }
+
+    public List<int[]> getValidMoves(ChessPiece piece) {
+        List<int[]> validMoves = new ArrayList<>();
+
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                if (piece.canMoveTo(row, col, this)) {
+                    validMoves.add(new int[]{row, col});
+                }
+            }
+        }
+
+        return validMoves;
     }
 
     /**
