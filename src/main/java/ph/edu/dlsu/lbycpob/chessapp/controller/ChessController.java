@@ -585,14 +585,22 @@ public class ChessController {
     private void clearHighlights() {
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
+            }
+        }
+    }
 
-                if ((row + col) % 2 == 0) {
-                    boardSquares[row][col].setStyle("-fx-fill: beige;");
-                } else {
-                    boardSquares[row][col].setStyle("-fx-fill: brown;");
+    public List<int[]> getValidMoves(ChessPiece piece) {
+        List<int[]> validMoves = new ArrayList<>();
+
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                if (piece.canMoveTo(row, col, board)) {
+                    validMoves.add(new int[]{row, col});
                 }
             }
         }
+
+        return validMoves;
     }
 
     public BorderPane getView() {
