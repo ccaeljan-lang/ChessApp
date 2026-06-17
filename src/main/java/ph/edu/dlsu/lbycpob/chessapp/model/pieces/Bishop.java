@@ -42,8 +42,39 @@ public class Bishop extends ChessPiece {
         int rowDiff = Math.abs(row - this.row);
         int colDiff = Math.abs(col - this.col);
 
-        // TODO: Complete the polymorphic method canMoveTo()
+        // [UNDERSTAND] A bishop must move diagonally,
+        // meaning the row and column changes must be equal.
+        if (rowDiff != colDiff) {
+            return false;
+        }
 
+        // [UNDERSTAND] Determine the direction of movement.
+        int rowStep = (row > this.row) ? 1 : -1;
+        int colStep = (col > this.col) ? 1 : -1;
+
+        int currentRow = this.row + rowStep;
+        int currentCol = this.col + colStep;
+
+        // [UNDERSTAND] Check that every square between the bishop
+        // and the destination is empty.
+        while (currentRow != row && currentCol != col) {
+            if (board.pieceAt(currentRow, currentCol) != null) {
+                return false;
+            }
+
+            currentRow += rowStep;
+            currentCol += colStep;
+        }
+
+        // [UNDERSTAND] Check destination.
+        ChessPiece targetPiece = board.pieceAt(row, col);
+
+        // [UNDERSTAND] Cannot capture your own piece.
+        if (targetPiece != null && targetPiece.getColor() == this.color) {
+            return false;
+        }
+
+        // [UNDERSTAND] To know if a move is a check or not.
         return !moveWouldCauseCheck(row, col, board);
     }
 
