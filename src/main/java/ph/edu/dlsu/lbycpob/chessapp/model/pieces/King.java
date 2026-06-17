@@ -48,8 +48,21 @@ public class King extends ChessPiece {
         int rowDiff = Math.abs(row - this.row);
         int colDiff = Math.abs(col - this.col);
 
-        // TODO: Complete the polymorphic method canMoveTo()
+        // [UNDERSTAND] A king can only move one square
+        // in any direction.
+        if (rowDiff > 1 || colDiff > 1) {
+            return false;
+        }
 
+        // [UNDERSTAND] Check destination.
+        ChessPiece targetPiece = board.pieceAt(row, col);
+
+        // [UNDERSTAND] Cannot capture your own piece.
+        if (targetPiece != null && targetPiece.getColor() == this.color) {
+            return false;
+        }
+
+        // [UNDERSTAND] To know if a move is a check or not.
         return !moveWouldCauseCheck(row, col, board);
     }
 
